@@ -1,54 +1,101 @@
-//create global variables
-var wins = 0;
-var losses = 0;
+$( document ).ready(function(){
+    var Random=Math.floor(Math.random()*101+19)
+    // Selects a random number to be shown at the start of the game
+    // Number should be should be between 19 - 120
+    
+    $('#randomNumber').text(Random);
+    // Appending random number to the randomNumber id in the html doc
+    
+    var num1= Math.floor(Math.random()*11+1)
+    var num2= Math.floor(Math.random()*11+1)
+    var num3= Math.floor(Math.random()*11+1)
+    var num4= Math.floor(Math.random()*11+1)
+    // Setting up random numbers for each jewel
+    // Random number has to be between 1 - 12
+    
+    var userTotal= 0; 
+    var wins= 0;
+    var losses = 0;
+    //  Decaring variables for tallies
+  $('#numberWins').text(wins);
+  $('#numberLosses').text(losses);
 
-var buttons = {
-    btn1 = Math.floor((Math.random() * 12) + 1),
-    btn2 = Math.floor((Math.random() * 12) + 1),
-    btn3 = Math.floor((Math.random() * 12) + 1),
-    btn4 = Math.floor((Math.random() * 12) + 1),
-};
-var score= 0;
-var guess = Math.floor((Math.random() * 120) + 19);
-//reset function so game starts with new random value
-$(document).ready(function(){
-//random number generator for the guess variable. (visible on click)
-    $("#random-number").click(function (){
-    document.getElementById("random-number").innerHTML = guess;
-        console.log(guess);
-    });
+  //resets the game
+  function reset(){
+        Random=Math.floor(Math.random()*101+19);
+        console.log(Random)
+        $('#randomNumber').text(Random);
+        num1= Math.floor(Math.random()*11+1);
+        num2= Math.floor(Math.random()*11+1);
+        num3= Math.floor(Math.random()*11+1);
+        num4= Math.floor(Math.random()*11+1);
+        userTotal= 0;
+        $('#finalTotal').text(userTotal);
+        } 
 
+  //adds the wins to the userTotal
+  function yay(){
+    $('.message').text("You won!");
+    wins++; 
+    $('#numberWins').text("Wins: " + wins);
+    reset();
+  }
 
-
-//random number generator for each crystal button. (hidden)
-//I think an object could be used here? Not sure on the syntax...trying to attach a random value to each of the buttons indiv.
-var crystal = $("<img>");
-
-crystal.attr("data-crystalvalue", buttons);
-
-    //on click, each number is added in the "score" variable.
-    $(".crystal").click(function (){
-        var crystalValue = ($(this).attr("data-crystalvalue"));
-        crystalValue = parseInt(crystalValue);
-    // We then add the crystalValue to the user's "counter" which is a global variable.
-    // Every click, from every crystal adds to the global counter.
-        score += crystalValue;
-        document.getElementById("score").innerHTML = crystalValue;
-        console.log(crystalValue);
-      });
-
-
-    });
-//if score === guess, "you win" displayed and a win is added to win var.
-if (score === guess){
-    document.getElementById("message").innerHTML("You Win!");
-    wins++;
-    console.log(wins)
-}
-//else if score > guess, "you lose" displayed and a loss is added to loss var. 
-else if (score > guess){
-    document.getElementById("message").innterHTML("You Lose!");
+  //addes the losses to the userTotal
+  function loser(){
+    $('.message').text("You lost!");
     losses++;
-}
-//when win/lose is populated, new random numbers are generated.
-    //score is back to 0, new random number shown in guess var.
+    $('#numberLosses').text("Losses: " + losses);
+    reset()
+  }
+
+  //sets up click for jewels
+    $('#one').on ('click', function(){
+      userTotal = userTotal + num1;
+      console.log("New userTotal= " + userTotal);
+      $('#finalTotal').text(userTotal); 
+            //sets win/lose conditions
+          if (userTotal == Random){
+            yay();
+          }
+          else if ( userTotal > Random){
+            loser();
+          }   
+    })  
+    $('#two').on ('click', function(){
+      userTotal = userTotal + num2;
+      console.log("New userTotal= " + userTotal);
+      $('#finalTotal').text(userTotal); 
+          if (userTotal == Random){
+            yay();
+          }
+          else if ( userTotal > Random){
+            loser();
+          } 
+    })  
+    $('#three').on ('click', function(){
+      userTotal = userTotal + num3;
+      console.log("New userTotal= " + userTotal);
+      $('#finalTotal').text(userTotal);
+      
+  //sets win/lose conditions
+            if (userTotal == Random){
+            yay();
+          }
+          else if ( userTotal > Random){
+            loser();
+          } 
+    })  
+    $('#four').on ('click', function(){
+      userTotal = userTotal + num4;
+      console.log("New userTotal= " + userTotal);
+      $('#finalTotal').text(userTotal); 
+        
+            if (userTotal == Random){
+            yay();
+          }
+          else if ( userTotal > Random){
+            loser();
+          }
+    });   
+  }); 
