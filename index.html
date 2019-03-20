@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Additional CSS -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=ABeeZee|Cantarell|Dancing+Script" rel="stylesheet">
 
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -33,13 +35,13 @@
     
     <div class="container">
         <div class="row header">
-            <div class="col-md-12">
+            <div class="col-12">
                 <h1>Let's collect crystals!</h1>
             </div>
         </div>
 
         <div class="row gameInstructions">
-            <div class="col-md-8">
+            <div class="col-8">
                 <p>You will be given a random number at the start of the game.</p>
                 <p>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your score.</p>
                 <p>You win the game by matching your total score to the random number. You lose the game if your total score exceeds the random number.</p>
@@ -50,14 +52,17 @@
         </div>
 
         <div class="row guess">
-            <div class="col-md-4"></div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-light btn-lg" id="randomNumber">Random Number:</button>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <h3 id="randomNumber">Random Number:</h3>
             </div>
-            <div class="col-md-2" id="tally">
+            <div class="col-3" id="tally">
                 <h3 class="message"></h3>
                 <h3 id="numberWins">Wins:</h3>
                 <h3 id="numberLosses">Losses:</h3>
+            </div>
+            <div class="col-3">
+                <h3 id="finalTotal">Your Score:</h3>
             </div>
         </div>
 
@@ -76,12 +81,6 @@
             </div>
         </div>
 
-        <div class="row score">
-            <div class="col-md-4"></div>
-            <div class="col-md-4" id="finalTotal">
-                <h2>Your Score:</h2>
-            </div>
-        </div>
     </div>
   </body>
 </html>
