@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,18 +9,22 @@
     <!-- Reset CSS file -->
     <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Additional CSS -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=ABeeZee|Cantarell|Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ABeeZee|Lobster|Dancing+Script" rel="stylesheet">
 
-        <!-- Optional JavaScript -->
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- My javascript link -->
-    <script src="assets/JavaScript/game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
 
     <style>
         body {
@@ -29,10 +34,10 @@
     </style>
 
     <title>Crystal Collector!</title>
-  </head>
+</head>
 
-  <body>
-    
+<body>
+
     <div class="container">
         <div class="row header">
             <div class="col-12">
@@ -40,47 +45,64 @@
             </div>
         </div>
 
-        <div class="row gameInstructions">
-            <div class="col-8">
-                <p>You will be given a random number at the start of the game.</p>
-                <p>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your score.</p>
-                <p>You win the game by matching your total score to the random number. You lose the game if your total score exceeds the random number.</p>
-                <p>The value of each crystal is hidden from you until you click on it.</p>
-                <p>Each time the game starts, a new random number will generate and your crystal values will change!</p>
-                <p>Good luck!</p>
+        <div class="row">
+            <div class="col-8" id="gameInstructions">
+                <ul>
+                <li>You will be given a random number at the start of the game.</li>
+                <br>
+                <li>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to
+                    your score.</li>
+                <br>
+                <li>You win the game by matching your total score to the random number. You lose the game if your total
+                    score exceeds the random number.</li>
+                <br>
+                <li>The value of each crystal is hidden from you until you click on it.</li>
+                <br>
+                <li>Each time the game starts, a new random number will generate and your crystal values will change!</li>
+                <br>
+                <li>Good luck!</li>
+            </div>
+            <div class="container col-4">
+                <div class="row">
+                    <h5 id="randomNumber">Random Number:</h5>
+                </div>
+                <div class="row" id="tally">
+                    <div class="col-3">
+                        <h5 id="message"></h5>
+                        <h5 id="numberWins"></h5>
+                        <h5 id="numberLosses"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4 id="finalTotal">Your Score:</h4>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="row guess">
-            <div class="col-1"></div>
-            <div class="col-3">
-                <h3 id="randomNumber">Random Number:</h3>
-            </div>
-            <div class="col-3" id="tally">
-                <h3 class="message"></h3>
-                <h3 id="numberWins">Wins:</h3>
-                <h3 id="numberLosses">Losses:</h3>
-            </div>
-            <div class="col-3">
-                <h3 id="finalTotal">Your Score:</h3>
-            </div>
+    <div class="row crystals">
+        <div class="col-2"></div>
+        <div class="col-2">
+            <div class="crystal" id="one"><img src="assets/images/amethyst.jpg"
+                    alt="amethyst"></div>
         </div>
-
-        <div class="row crystals">
-            <div class="col-md-3">
-                <button type="button" class="crystal" id="one"><img src="assets/images/amethyst.jpg" alt="amethyst"></button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="crystal" id="two"><img src="assets/images/blueCrystal.jpg" alt="blue-crystal"></button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="crystal" id="three"><img src="assets/images/brightBlue.jpg" alt="bright-blue"></button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="crystal" id="four"><img src="assets/images/lotus.jpg" alt="lotus"></button>
-            </div>
+        <div class="col-2">
+            <div class="crystal" id="two"><img src="assets/images/blueCrystal.jpg"
+                    alt="blue-crystal"></div>
         </div>
+        <div class="col-2">
+            <div class="crystal" id="three"><img src="assets/images/brightBlue.jpg"
+                    alt="bright-blue"></div>
+        </div>
+        <div class="col-2">
+            <div class="crystal" id="four"><img src="assets/images/lotus.jpg" alt="lotus"></div>
+        </div>
+        <div class="col-2"></div>
+    </div>
 
     </div>
-  </body>
+    <!-- My javascript link -->
+    <script src="assets/JavaScript/game.js"></script>
+</body>
+
 </html>

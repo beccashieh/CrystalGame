@@ -34,8 +34,8 @@ $( document ).ready(function(){
         } 
 
   //adds the wins to the userTotal
-  function yay(){
-    $('.message').text("You won!");
+  function winner(){
+    $('#message').text("You won!");
     wins++; 
     $('#numberWins').text("Wins: " + wins);
     reset();
@@ -43,7 +43,7 @@ $( document ).ready(function(){
 
   //addes the losses to the userTotal
   function loser(){
-    $('.message').text("You lost!");
+    $('#message').text("You lost!");
     losses++;
     $('#numberLosses').text("Losses: " + losses);
     reset()
@@ -56,7 +56,7 @@ $( document ).ready(function(){
       $('#finalTotal').text("Your score: " + userTotal); 
             //sets win/lose conditions
           if (userTotal == Random){
-            yay();
+            winner();
             reset();
           }
           else if ( userTotal > Random){
@@ -69,7 +69,7 @@ $( document ).ready(function(){
       console.log("New userTotal= " + userTotal);
       $('#finalTotal').text("Your score: " + userTotal); 
           if (userTotal == Random){
-            yay();
+            winner();
             reset();
           }
           else if ( userTotal > Random){
@@ -84,7 +84,7 @@ $( document ).ready(function(){
       
   //sets win/lose conditions
             if (userTotal == Random){
-            yay();
+            winner();
             reset();
           }
           else if ( userTotal > Random){
@@ -98,7 +98,7 @@ $( document ).ready(function(){
       $('#finalTotal').text("Your score: " + userTotal); 
         
             if (userTotal == Random){
-            yay();
+            winner();
             reset();
           }
           else if ( userTotal > Random){
